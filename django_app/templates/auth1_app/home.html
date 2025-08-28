@@ -11,8 +11,13 @@
 
 <body>
     <div class="container">
-        <h2>Protected</h2>
-        <a href="{% url 'home' %}">Home</a>
+        <h2>Home</h2>
+        <p>Welcome, {{ request.user.username }}!</p>
+        <a href="{% url 'protected' %}">Go to Protected</a>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
     </div>
 </body>
 

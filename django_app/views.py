@@ -24,8 +24,7 @@ def register_view(request):
             return redirect("home")
     else:
         form = RegisterForm()
-        return render(request, "accounts/register.html", {"form": form})
-    return None
+    return render(request, "accounts/register.html", {"form": form})
 
 
 def login_view(request):
@@ -48,13 +47,11 @@ def logout_view(request):
         logout(request)
         return redirect("login")
     return redirect("home")
-    return render(request, "accounts/logout.html")
 
 
 @login_required
 def home_view(request):
-    form = ContactForm()
-    return render(request, "form_app/home.html", {"form": form})
+    return render(request, "auth1_app/home.html")
 
 
 class ProctectedView(LoginRequiredMixin, View):
